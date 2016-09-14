@@ -1,0 +1,40 @@
+{
+    "authors": [
+        "@muo_jp"
+    ],
+    "copyright": "@muo_jp, 2016",
+    "description": "PSVR Web watcher",
+    "version": "1.0.0-alpha",
+    "buildOptions": {
+        "emitEntryPoint": true
+    },
+    "packOptions": {
+        "summary": "PSVR Web Watcher",
+        "owners": [
+            "@muo_jp"
+        ],
+        "projectUrl": "https://github.com/muojp/PSVRWatcher",
+        "licenseUrl": "https://opensource.org/licenses/MIT",
+        "repository": {
+            "type": "git",
+            "url": "git://github.com/muojp/PSVRWatcher.git"
+        }
+    },
+    "dependencies": {
+        "System.Net.Http": "4.1.0",
+        "Newtonsoft.Json": "8.0.4-beta1",
+        "CenterCLR.SgmlReader": "2016.3.27.2",
+        "CsvHelper": "2.16.0"
+    },
+    "frameworks": {
+        "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.1"
+                }
+            },
+            "imports": "dnxcore50"
+        }
+    }
+}
