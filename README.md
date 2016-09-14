@@ -12,7 +12,7 @@ Generates PSVR software release info(dates, genre, rating, ...) in CSV format by
 
 ## Prerequisites
 
- * .NET Core Runtime
+ * .NET Core Runtime 1.0.1+
 
 ## Setup (1st time only)
 
