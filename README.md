@@ -2,7 +2,7 @@
 
 ## About
 
-Generates PSVR software release dates in CSV format by scraping official web page.
+Generates PSVR software release info(dates, genre, rating, ...) in CSV format by scraping official web page.
 
 ## Supported OSes
 
@@ -12,7 +12,7 @@ Generates PSVR software release dates in CSV format by scraping official web pag
 
 ## Prerequisites
 
-.NET Core Runtime
+ * .NET Core Runtime
 
 ## Setup (1st time only)
 
