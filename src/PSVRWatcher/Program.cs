@@ -138,16 +138,21 @@ namespace PSVRWebScraper
         {
             var games = new List<GameInformation>();
             var ns = doc.Root.Name.Namespace;
-            var el = doc.Descendants(ns + "div").Where(o => o.Attribute("class")?.Value == "baseComponent section style_container").First();
-            {
-                // found a container node
-                foreach (var subEl in el.Descendants(ns + "div").Where(o => o.Attribute("class")?.Value == "col-lg-8 col-md-8 col-sm-12 col-xs-12"))
+            var list = doc.Descendants(ns + "div").Where(o => o.Attribute("class")?.Value == "parsys styleParsys");
+            // found container nodes
+            if (list.Count() != 0) {
+                foreach (var el in list)
                 {
-                    var h4El = subEl.Descendants(ns + "h4").FirstOrDefault();
-                    var pEl = subEl.Descendants(ns + "p").FirstOrDefault();
+                    var h4El = el.Descendants(ns + "h4").FirstOrDefault();
+                    var pEl = el.Descendants(ns + "div")
+                        .Where(o => o.Attribute("class")?.Value == "col-lg-8 col-md-8 col-sm-12 col-xs-12")
+                        .FirstOrDefault()?.Descendants(ns + "p").FirstOrDefault();
                     //Console.WriteLine(h4El.Value.Trim());
-                    var dict = ParseDescriptionStage1(pEl.Value);
-                    games.Add(ParseDescriptionStage2(h4El.Value.Trim(), dict));
+                    if (pEl != null)
+                    {
+                        var dict = ParseDescriptionStage1(pEl.Value);
+                        games.Add(ParseDescriptionStage2(h4El != null ? h4El.Value.Trim() : "no title", dict));
+                    }
                 }
             }
             return games;
