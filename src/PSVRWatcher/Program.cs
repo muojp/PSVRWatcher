@@ -23,6 +23,7 @@ namespace PSVRWebScraper
             public string price_package { get; set; }
             public string price_download { get; set; }
             public string cero_rating { get; set; }
+            public string support_move { get; set; }
             public string extra_info { get; set; }
         }
 
@@ -87,12 +88,14 @@ namespace PSVRWebScraper
                 title = title,
                 vendor = dict["vendor"],
                 psvr = dict["PS VR"],
-                genre = dict["ジャンル"]
+                genre = dict["ジャンル"],
+                support_move = dict["PS Move"]
             };
             dict.Remove("title");
             dict.Remove("vendor");
             dict.Remove("PS VR");
             dict.Remove("ジャンル");
+            dict.Remove("PS Move");
             if (dict.ContainsKey("発売予定日"))
             {
                 inf.release_date = dict["発売予定日"];
