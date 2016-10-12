@@ -161,7 +161,7 @@ namespace PSVRWebScraper
         void DumpGameList(List<GameInformation> games)
         {
             Console.WriteLine("game count: " + games.Count);
-            var filename = "games_" + DateTime.Now.ToString("yy-mm-dd-HHmmss") + ".csv";
+            var filename = "games_" + DateTime.Now.ToString("yyMMdd-HHmmss") + ".csv";
             using (var fs = File.Open(filename, FileMode.Create))
             using (var writer = new StreamWriter(fs))
             {
