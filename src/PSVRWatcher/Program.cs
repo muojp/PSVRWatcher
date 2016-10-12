@@ -143,6 +143,11 @@ namespace PSVRWebScraper
             if (list.Count() != 0) {
                 foreach (var el in list)
                 {
+                    if (el.Parent.Name == "div" && el.Parent.Attribute("class")?.Value == "box960")
+                    {
+                        // skip demo disc
+                        continue;
+                    }
                     var h4El = el.Descendants(ns + "h4").FirstOrDefault();
                     var pEl = el.Descendants(ns + "div")
                         .Where(o => o.Attribute("class")?.Value == "col-lg-8 col-md-8 col-sm-12 col-xs-12")
